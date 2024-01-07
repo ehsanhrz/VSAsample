@@ -37,4 +37,16 @@ public class GetUser
             LastName = u.LastName
         }).SingleAsync(u => u.Email == query.Email);
     }
+
+    public async Task<UserDto> GetUserByIdAsync(GetUserByIdQuery query)
+    {
+        return await context.Users.Select(u => new UserDto()
+        {
+            Id = u.Id,
+            Email = u.Email,
+            PhoneNumber = u.PhoneNumber,
+            FirstName = u.FirstName,
+            LastName = u.LastName
+        }).SingleOrDefaultAsync(u => u.Id == query.UseId);
+    }
 }
