@@ -1,5 +1,5 @@
 ﻿using DbContext;
-using Entities.Users;
+using DbContext.Entities.Users;
 using Features.Users.Models.Commands;
 using Microsoft.EntityFrameworkCore;
 

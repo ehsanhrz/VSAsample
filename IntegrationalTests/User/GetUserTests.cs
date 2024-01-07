@@ -1,8 +1,6 @@
-﻿using DbContext;
-using Features.Users.Models.Commands;
+﻿using Features.Users.Models.Commands;
 using Features.Users.Models.Queries;
 using Features.Users.Services;
-using Microsoft.EntityFrameworkCore;
 
 namespace IntegrationalTests.User;
 
@@ -28,7 +26,6 @@ public class GetUserTests : IntegrationalTestsBaseSetUp
         };
         UserCud.CreateAsync(command).Wait();
     }
-
     
     
     [Test]

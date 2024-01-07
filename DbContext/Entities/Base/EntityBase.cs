@@ -1,4 +1,4 @@
-﻿namespace Entities.Base;
+﻿namespace DbContext.Entities.Base;
 
 public abstract class EntityBase
 {

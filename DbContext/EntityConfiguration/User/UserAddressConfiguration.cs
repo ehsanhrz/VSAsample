@@ -1,4 +1,4 @@
-﻿using Entities.Users;
+﻿using DbContext.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

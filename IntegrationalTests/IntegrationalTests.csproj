@@ -24,7 +24,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\DbContext\DbContext.csproj" />
-      <ProjectReference Include="..\Entities\Entities.csproj" />
       <ProjectReference Include="..\Features\Features.csproj" />
     </ItemGroup>
 

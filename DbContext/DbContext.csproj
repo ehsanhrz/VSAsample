@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Entities\Entities.csproj" />
+      <Folder Include="Entities\" />
     </ItemGroup>
 
 </Project>

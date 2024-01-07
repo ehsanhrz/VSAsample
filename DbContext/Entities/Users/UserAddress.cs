@@ -1,6 +1,6 @@
-﻿using Entities.Base;
+﻿using DbContext.Entities.Base;
 
-namespace Entities.Users;
+namespace DbContext.Entities.Users;
 
 public class UserAddress : EntityBase
 {
