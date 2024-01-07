@@ -1,12 +1,11 @@
 ﻿using DbContext;
 using Features.Users.Models.DTOs;
 using Features.Users.Models.Queries;
-using Features.Users.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Features.Users.Services;
 
-public class GetUser : IGetUser
+public class GetUser
 {
     private readonly AppDbContext context;
 

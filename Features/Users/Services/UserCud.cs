@@ -1,15 +1,11 @@
-﻿using System.Linq.Expressions;
-using DbContext;
+﻿using DbContext;
 using Entities.Users;
-using Features.Users.Exceptions;
 using Features.Users.Models.Commands;
-using Features.Users.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
 
 namespace Features.Users.Services;
 
-public class UserCud : IUserCUD
+public class UserCud
 {
     private readonly AppDbContext context;
 
