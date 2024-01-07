@@ -15,7 +15,7 @@ public class UserCudTests : IntegrationalTestsBaseSetUp
     
     public UserCudTests()
     {
-        GetUser = new GetUser(DbContext ?? throw new Exception("D"));
+        GetUser = new GetUser(DbContext ?? throw new Exception());
         UserCud = new UserCud(DbContext ?? throw new Exception());
     }
     
