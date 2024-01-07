@@ -1,9 +1,11 @@
-﻿using Features.Users.Models.Commands;
+﻿using DbContext;
+using Features.Users.Models.Commands;
 using Features.Users.Models.Queries;
 using Features.Users.Services;
 
 namespace IntegrationalTests.User;
 
+[TestFixture]
 public class UserCudTests : IntegrationalTestsBaseSetUp
 {
     
@@ -13,7 +15,7 @@ public class UserCudTests : IntegrationalTestsBaseSetUp
     
     public UserCudTests()
     {
-        GetUser = new GetUser(DbContext ?? throw new Exception());
+        GetUser = new GetUser(DbContext ?? throw new Exception("D"));
         UserCud = new UserCud(DbContext ?? throw new Exception());
     }
     

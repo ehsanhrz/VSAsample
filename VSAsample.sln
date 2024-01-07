@@ -16,8 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbContext", "DbContext\DbCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationalTests", "IntegrationalTests\IntegrationalTests.csproj", "{7CEEE664-1E20-43A6-BAFC-78BF69C24AFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{FD9530F8-E104-4C66-AF48-6360DFA52EDF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C52037D5-7863-4C3E-BCEA-CE75FB467EB4}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
@@ -33,7 +31,6 @@ Global
 		{3CAEE160-9562-4E3E-A20E-05F1CD8A2441} = {D2A44247-DF8D-41E1-A64A-3274FEA03F76}
 		{F1EFCA4C-001E-4854-8EAC-E24C09CEADE2} = {ADDE7938-536B-4897-B5B2-043DF6CB350A}
 		{7CEEE664-1E20-43A6-BAFC-78BF69C24AFB} = {A756D616-BDA6-43DA-A824-CF4263010A36}
-		{FD9530F8-E104-4C66-AF48-6360DFA52EDF} = {A756D616-BDA6-43DA-A824-CF4263010A36}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EA5C0867-784B-4B92-A943-7460A3B6FF3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -52,9 +49,5 @@ Global
 		{7CEEE664-1E20-43A6-BAFC-78BF69C24AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CEEE664-1E20-43A6-BAFC-78BF69C24AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CEEE664-1E20-43A6-BAFC-78BF69C24AFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD9530F8-E104-4C66-AF48-6360DFA52EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD9530F8-E104-4C66-AF48-6360DFA52EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD9530F8-E104-4C66-AF48-6360DFA52EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD9530F8-E104-4C66-AF48-6360DFA52EDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
