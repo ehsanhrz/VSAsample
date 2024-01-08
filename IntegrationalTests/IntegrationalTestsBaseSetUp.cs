@@ -4,25 +4,27 @@ using Microsoft.EntityFrameworkCore;
 namespace IntegrationalTests;
 
 
-[SetUpFixture]
 public class IntegrationalTestsBaseSetUp
 {
-    private static PostgreSqlContainerTest? Container { get; set; }
-    protected static AppDbContext? DbContext { get; set; }
+    private PostgreSqlContainerTest? Container { get; set; }
+    public AppDbContext? DbContext { get; set; }
 
-    [OneTimeSetUp]
+    public IntegrationalTestsBaseSetUp()
+    {
+        SetDbContextForTest().Wait();
+    }
+    
     public async Task SetDbContextForTest()
     {
         
         Container = new PostgreSqlContainerTest();
         await Container.InitializeAsync();
         DbContext = new AppDbContext(Container.CreateNewContextOptions());
-        DbContext.Database.Migrate();    
+        await DbContext.Database.MigrateAsync();    
         
     }
     
     
-    [OneTimeTearDown]
     public async Task Dispose()
     {
         await Container?.DisposeAsync()!;

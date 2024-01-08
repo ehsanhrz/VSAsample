@@ -1,25 +1,23 @@
-﻿using DbContext;
-using Features.Users.Models.Commands;
+﻿using Features.Users.Models.Commands;
 using Features.Users.Models.Queries;
 using Features.Users.Services;
 
-namespace IntegrationalTests;
+namespace IntegrationalTests.User;
 
-[TestFixture]
-public class UserCudTests : IntegrationalTestsBaseSetUp
+[Collection("ITests")]
+public class UserCudTests
 {
-    
     private UserCud UserCud { get; set; }
 
     private GetUser GetUser { get; set; }
-    
-    public UserCudTests()
+
+    public UserCudTests(IntegrationalTestsBaseSetUp integrationalTestsBaseSetUp)
     {
-        GetUser = new GetUser(DbContext ?? throw new Exception());
-        UserCud = new UserCud(DbContext ?? throw new Exception());
+        UserCud = new UserCud(integrationalTestsBaseSetUp.DbContext ?? throw new Exception());
+        GetUser = new GetUser(integrationalTestsBaseSetUp.DbContext ?? throw new Exception());
     }
     
-    [Test]
+    [Fact]
     public async Task TestUserCreateMethod()
     {
         //a
@@ -40,14 +38,11 @@ public class UserCudTests : IntegrationalTestsBaseSetUp
         var result = await GetUser.GetUserByEmailAsync(query);
         
         //a checking two must unique value
-        Assert.Multiple(() =>
-        {
-            Assert.That(command.Email, Is.EqualTo(result.Email));
-            Assert.That(command.PhoneNumber, Is.EqualTo(result.PhoneNumber));
-        });
+        Assert.Equal(result.Email,command.Email);
+        Assert.Equal(result.PhoneNumber, command.PhoneNumber);
     }
-
-    [Test]
+    
+    [Fact]
     public async Task TestUpdateUserMethod()
     {
         //a
@@ -65,6 +60,7 @@ public class UserCudTests : IntegrationalTestsBaseSetUp
         
         await UserCud.CreateAsync(createCommand);
         var createOperationResult = await GetUser.GetUserByEmailAsync(query);
+        
         //a
         const string newEmail = "string23";
         const string newPhone = "string23";
@@ -82,15 +78,16 @@ public class UserCudTests : IntegrationalTestsBaseSetUp
         };
         await UserCud.UpdateAsync(updateCommand);
         var updateOperationResult = await GetUser.GetUserByEmailAsync(updateResultQuery);
+        
         //a
         Assert.Multiple(() =>
         {
-            Assert.That(updateCommand.Email, Is.EqualTo(updateOperationResult.Email));
-            Assert.That(updateCommand.PhoneNumber, Is.EqualTo(updateOperationResult.PhoneNumber));
+            Assert.Equal(updateCommand.Email, updateOperationResult.Email);
+            Assert.Equal(updateCommand.PhoneNumber, updateOperationResult.PhoneNumber);
         });
     }
-
-    [Test]
+    
+    [Fact]
     public async Task TestDeleteUserMethode()
     {
         //a

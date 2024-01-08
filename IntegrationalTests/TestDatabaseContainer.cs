@@ -1,10 +1,5 @@
 ﻿using DbContext;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Testcontainers.PostgreSql;
 
 namespace IntegrationalTests;
