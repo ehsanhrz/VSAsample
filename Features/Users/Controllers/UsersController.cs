@@ -47,15 +47,15 @@ public class UsersController : ControllerBase
         return Ok();
     }
     
-    [HttpPost(Name = "Update")]
+    [HttpPut(Name = "Update")]
     public async Task<IActionResult> Update([FromBody] UpdateUserCommand command)
     {
         await userCud.UpdateAsync(command);
         return Ok();
     }
 
-    [HttpPost(Name = "Delete")] 
-    public async Task<IActionResult> Delete([FromBody] DeleteUserCommand command)
+    [HttpDelete(Name = "Delete")] 
+    public async Task<IActionResult> Delete([FromQuery] DeleteUserCommand command)
     {
         await userCud.DeleteAsync(command);
         return Ok();

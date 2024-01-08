@@ -4,7 +4,6 @@ using System.Text;
 using Features;
 using Features.Users.Models.Commands;
 using Features.Users.Models.DTOs;
-using Features.Users.Models.Queries;
 using Newtonsoft.Json;
 
 namespace FunctionalTests.User;
@@ -84,7 +83,7 @@ public class UsersControllerTests
         };
         
         var updateUserCommandHttpContent = new StringContent(JsonConvert.SerializeObject(updateUserCommand),Encoding.UTF8, "application/json");
-        var updateUserCommandResult = await client.PostAsync(UserControllersEndPoints.Update,updateUserCommandHttpContent);
+        var updateUserCommandResult = await client.PutAsync(UserControllersEndPoints.Update,updateUserCommandHttpContent);
         Assert.Equal(HttpStatusCode.OK, updateUserCommandResult.StatusCode);
         var updatedUserId = updateUserCommand.Id;
         return updatedUserId;
@@ -114,5 +113,38 @@ public class UsersControllerTests
         var resultCreateUserCommand = await client.PostAsync(UserControllersEndPoints.Create,createUserCommandHttpContent);
         
         Assert.Equal(HttpStatusCode.OK, resultCreateUserCommand.StatusCode);
+    }
+
+    [Fact]
+    public async Task Test_Delete_User_Command()
+    {
+        // a
+        var email = "string3";
+        var resultCreateUserCommand = await CreateUserForDeleteUserTest(email);
+
+        var createdUser = await GetCreatedUserByEmail(email);
+        // a
+        var resultDeleteUserCommandRequest = await client.DeleteAsync($"{UserControllersEndPoints.Delete}?Id={createdUser.Id}");
+        
+        // a
+        Assert.Equal(HttpStatusCode.OK, resultCreateUserCommand.StatusCode);
+    }
+
+    private async Task<HttpResponseMessage> CreateUserForDeleteUserTest(string email)
+    {
+        var createUserCommand = new CreateUserCommand()
+        {
+            FirstName = "string3",
+            LastName = "string3",
+            Email = email,
+            PhoneNumber = "string3"
+        };
+
+        var createUserCommandHttpContent = new StringContent(JsonConvert.SerializeObject(createUserCommand), Encoding.UTF8, "application/json");
+        
+        var resultCreateUserCommand = await client.PostAsync(UserControllersEndPoints.Create,createUserCommandHttpContent);
+        
+        Assert.Equal(HttpStatusCode.OK, resultCreateUserCommand.StatusCode);
+        return resultCreateUserCommand;
     }
 }
