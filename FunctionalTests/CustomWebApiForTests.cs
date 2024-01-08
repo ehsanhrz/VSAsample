@@ -8,7 +8,7 @@ using Testcontainers.PostgreSql;
 
 namespace FunctionalTests;
 
-public class CustomWebApplicationForTests<TProgram> : WebApplicationFactory<TProgram> where TProgram : class
+public class CustomWebApiForTests<TProgram> : WebApplicationFactory<TProgram> where TProgram : class
 {
     private readonly PostgreSqlContainer postgreSqlContainer = new PostgreSqlBuilder().Build();
 

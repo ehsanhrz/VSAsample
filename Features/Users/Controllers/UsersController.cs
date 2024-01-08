@@ -30,7 +30,14 @@ public class UsersController : ControllerBase
     public async Task<ActionResult<UserDto>> GetUserByPhoneNumber([FromQuery] GetUserByPhoneNumberQuery query)
     {
         var result = await getUser.GetUserByPhoneNumberAsync(query);
-        return Ok(query);
+        return Ok(result);
+    }
+
+    [HttpGet(Name = "GetUserById")]
+    public async Task<ActionResult<UserDto>> GetUserById([FromQuery] GetUserByIdQuery query)
+    {
+        var result = await getUser.GetUserByIdAsync(query);
+        return Ok(result);
     }
     
     [HttpPost(Name = "Create")]

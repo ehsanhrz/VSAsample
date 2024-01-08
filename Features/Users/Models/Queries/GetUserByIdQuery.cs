@@ -7,5 +7,5 @@ public record GetUserByIdQuery
         
     }
 
-    public long UseId { get; set; }
+    public long UserId { get; set; }
 }

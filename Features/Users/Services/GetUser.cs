@@ -47,6 +47,6 @@ public class GetUser
             PhoneNumber = u.PhoneNumber,
             FirstName = u.FirstName,
             LastName = u.LastName
-        }).SingleOrDefaultAsync(u => u.Id == query.UseId);
+        }).SingleOrDefaultAsync(u => u.Id == query.UserId);
     }
 }
