@@ -2,7 +2,7 @@
 using Features.Users.Models.Queries;
 using Features.Users.Services;
 
-namespace IntegrationalTests.User;
+namespace IntegrationalTests;
 
 [TestFixture]
 public class GetUserTests : IntegrationalTestsBaseSetUp
